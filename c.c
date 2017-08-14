@@ -19,7 +19,7 @@ if(bind(udp_fd,(struct sockaddr*)&add,sizeof(add))!=0)perror("bind error");
 struct ip_mreq group_add;//设置组播地址结构
 memset(&group_add,0,sizeof(group_add));
 group_add.imr_interface.s_addr=htonl(INADDR_ANY);
-if(inet_pton(AF_INET,"255.0.0.10",&group_add.imr_multiaddr.s_addr)==0)perror("inet_pton error");
+if(inet_pton(AF_INET,"224.0.0.10",&group_add.imr_multiaddr.s_addr)==0)perror("inet_pton error");
 
 if(setsockopt(udp_fd,IPPROTO_IP,IP_ADD_MEMBERSHIP,&group_add,sizeof(group_add))!=0)perror("setsockopt error");//加入组播
 char buff[1024];
