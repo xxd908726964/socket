@@ -16,12 +16,12 @@ add.sin_family=AF_INET;
 add.sin_port=htons(2000);
 if(bind(udp_fd,(struct sockaddr*)&add,sizeof(add))!=0)perror("bind error");
 
-struct ip_mreq group_add;//设置组播地址结构
+struct ip_mreq group_add;
 memset(&group_add,0,sizeof(group_add));
 group_add.imr_interface.s_addr=htonl(INADDR_ANY);
 if(inet_pton(AF_INET,"224.0.0.10",&group_add.imr_multiaddr.s_addr)==0)perror("inet_pton error");
 
-if(setsockopt(udp_fd,IPPROTO_IP,IP_ADD_MEMBERSHIP,&group_add,sizeof(group_add))!=0)perror("setsockopt error");//加入组播
+if(setsockopt(udp_fd,IPPROTO_IP,IP_ADD_MEMBERSHIP,&group_add,sizeof(group_add))!=0)perror("setsockopt error");
 char buff[1024];
 while(1)
 {
