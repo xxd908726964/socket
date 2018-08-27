@@ -7,6 +7,8 @@
 
 int main()
 {
+
+	printf("\n\n");
 int udp_fd;
 if((udp_fd=socket(AF_INET,SOCK_DGRAM,0))<0)perror("socket error");
 struct sockaddr_in add;
