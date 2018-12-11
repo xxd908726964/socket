@@ -8,7 +8,7 @@
 int main()
 {
 
-	printf("\n\n");  //2018年12月11日---- git实验
+	printf("\n\n");  //2018年12月11日---- git实验-----
 int udp_fd;
 if((udp_fd=socket(AF_INET,SOCK_DGRAM,0))<0)perror("socket error");
 struct sockaddr_in add;
